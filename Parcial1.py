@@ -4,8 +4,6 @@ class DefPolinomio(Scene):
     def construct(self):
         #rejilla  = NumberPlane()
         #self.add(rejilla)
-        colormain = "#008080"
-        colorop = "#800000"
         Emerald = "#00A99D"
         OrangeRed = "#ED135A"
         YellowOrange = "#FAA21A"
@@ -190,6 +188,9 @@ class irreducibles(Scene):
         self.wait(4)
 
 # Teorema del factor en 1 variable (recordemos)
+        """
+        Acá me falta recordar el teorema en 1 variable
+        """
 class teoremafactor(Scene):
     def construct(self):
         Emerald = "#00A99D"
@@ -224,6 +225,7 @@ class teoremafactor(Scene):
         self.wait()
 
 
+#Def: Acción del grupo simétrico, polinomios simétricos y sim elementales.
 class polisimetricos(Scene):
     def construct(self):
         Emerald = "#00A99D"
@@ -233,10 +235,10 @@ class polisimetricos(Scene):
         self.wait()
         self.play(Transform(texto1,texto2))
         self.wait()
-        texto3 = MathTex(r"\textit{Acción del grupo }\operatorname{Sym}_n \textit{ sobre }R[X] \textit{ y sobre }R\left(X)").set_color(Emerald)
-        texto4 = MathTex(r"\operatorname{Sym}_n \textit{ actua en }R[X] \textit{ vía }").set_color(Emerald).move_to(UP *2.5+LEFT*6).scale(0.8)
-        eqn0 = MathTex(r"\begin{gathered} (\sigma \star f)\left(x_{1}, \ldots, x_{n}\right)=f\left(x_{\sigma^{-1}(1)}, \ldots, x_{\sigma^{-1}(n)}\right)\end{gathered}").scale(0.7)
-        eqn0_b = MathTex(r"\begin{gathered} (\sigma \star f)\left(x_{1}, \ldots, x_{n}\right)=f\left(x_{\sigma^{-1}(1)}, \ldots, x_{\sigma^{-1}(n)}\right)\\ \textit{Luego un elemento}f \in k[X] \textit{se dice simétrico si es invariante bajo esta acción.}\end{gathered}").move_to(UP*2).scale(0.5)        
+        texto3 = MathTex(r"\textit{Acción del grupo }\operatorname{Sym}_n \textit{ sobre }R(X) \textit{ y sobre }R\left[X]").set_color(Emerald)
+        texto4 = MathTex(r"\operatorname{Sym}_n \textit{ actua en }R[X] \textit{ vía }").set_color(Emerald).move_to(UP *2.5+LEFT*4).scale(0.8)
+        eqn0 = MathTex(r"\begin{gathered} (\sigma \star f)\left(x_{1}, \ldots, x_{n}\right)=f\left(x_{\sigma^{-1}(1)}, \ldots, x_{\sigma^{-1}(n)}\right)\end{gathered}").scale(0.8)
+        eqn0_b = MathTex(r"\begin{gathered} (\sigma \star f)\left(x_{1}, \ldots, x_{n}\right)=f\left(x_{\sigma^{-1}(1)}, \ldots, x_{\sigma^{-1}(n)}\right)\\ \textit{Luego un elemento }f \in R[X] \textit{ se dice simétrico si es invariante bajo esta acción.}\end{gathered}").move_to(UP*1.5).scale(0.7)        
         self.play(Write(texto3))
         self.wait(2)
         self.play(Transform(texto3,texto4))
@@ -245,10 +247,10 @@ class polisimetricos(Scene):
         self.wait(6)
         self.play(Transform(eqn0,eqn0_b))
         self.wait(6)
-        texto5 = MathTex(r"\textit{Funciones racionales y polinomios simétricos}").set_color(Emerald)
-        texto6 = MathTex(r"f \in R(X) \textit{es una función racional simétrica si }").set_color(Emerald).move_to(UP *1+LEFT*3).scale(0.8)
-        eqn1 = MathTex(r"\begin{gathered} \textit{El efecto de aplicar cualquier }\sigma \in \operatorname{Sym}_{n} \textit{ a } D   \textit{ es una premutación de los factores } \left(x_{i}-x_{j}\right)^{2} \\ \textit{ luego } D \textit{ es invariante bajo la acción de } \operatorname{Sym}_{n} \textit{ en X} \end{gathered}").move_to(DOWN*0.5).scale(0.7)
-        eqn1_b = MathTex(r"\begin{gathered} \textit{El efecto de aplicar cualquier }\sigma \in \operatorname{Sym}_{n} \textit{ a } D   \textit{ es una premutación de los factores } \left(x_{i}-x_{j}\right)^{2} \\ \textit{ luego } D \textit{ es invariante bajo la acción de } \operatorname{Sym}_{n} \textit{ en X} \end{gathered}").scale(0.5)
+        texto5 = MathTex(r"\textit{Polinomios simétricos}").set_color(Emerald)
+        texto6 = MathTex(r"\textit{Def: Un polinomio } f \in R[X] \textit{ se llama simétrico si } ").set_color(Emerald).move_to(UP *0.5+LEFT*1.8).scale(0.8)
+        eqn1 = MathTex(r"\begin{gathered} f\left(x_{\sigma(1)}, \ldots, x_{\sigma(n)}\right)=f\left(x_{1}, \ldots, x_{n}\right) \text { para todas las permutaciones } \sigma \in \operatorname{Sym}_{n} \end{gathered}").move_to(DOWN*0.5).scale(0.7)
+        eqn1_b = MathTex(r"\begin{gathered} f\left(x_{\sigma(1)}, \ldots, x_{\sigma(n)}\right)=f\left(x_{1}, \ldots, x_{n}\right) \text { para todas las permutaciones } \sigma \in \operatorname{Sym}_{n} \end{gathered}").move_to(DOWN*0.5).scale(0.7)
         self.play(Write(texto5))
         self.wait(2)
         self.play(Transform(texto5,texto6))
@@ -257,20 +259,64 @@ class polisimetricos(Scene):
         self.wait(6)
         self.play(Transform(eqn1,eqn1_b))
         self.wait(6)
-
-        #acá voy
-        texto7 = MathTex(r"\begin{gathered}\textit{Ejemplo: Discriminante de } x_1, x_2, x_3 \textit{ con } \sigma(x_1,x_2,x_3) = (x_2,x_3,x_1)\\ \textit{ permutación fija para ilustrar la acción del grupo }\operatorname{Sym}_3 \end{gathered}").set_color(Emerald).move_to(DOWN*1.5).scale(0.8)
-        texto8 = MathTex(r"\textit{Ejemplo: Discriminante de } x_1, x_2, x_3 \textit{ con } \sigma(x_1,x_2,x_3) = (x_2,x_3,x_1)").set_color(Emerald).move_to(DOWN*1.5).scale(0.7)
-        subdeg = MathTex(r"\begin{gathered} D(x_1, x_2, x_3) =\prod_{1 \leq i<j \leq 3}\left(x_{i}-x_{j}\right)^{2} = (x_1-x_2)^2(x_1-x_3)^2(x_2-x_3)^2\\ = (x_2-x_1)^2(x_3-x_1)^2(x_2-x_3)^2 = (x_2-x_3)^2(x_2-x_1)^2(x_3-x_1)^2 = D(x_2, x_3, x_1) =  D(\sigma(x_1, x_2, x_3)) \end{gathered}").move_to(DOWN*2.5).scale(0.6)
+        texto7 = MathTex(r"\begin{gathered} \textit{Def: polinomios elementales } s_{1}, \ldots, s_{n} \textit{ en n variables} \end{gathered}").set_color(Emerald).move_to(DOWN*1.5).scale(0.8)
+        texto8 = MathTex(r"\textit{Def: polinomios elementales } s_{1}, \ldots, s_{n} \textit{ en n variables}  ").set_color(Emerald).move_to(DOWN*1.5).scale(0.8)
+        subdeg = MathTex(r"\begin{gathered} s_{k}\left(x_{1}, \ldots, x_{n}\right)=\sum_{1 \leq i_{1}<\cdots<i_{k} \leq n} x_{i_{1}} \cdots x_{i_{k}} \end{gathered}").move_to(DOWN*2.6).scale(0.7)
         self.play(Write(texto7))
         self.wait(2)
         self.play(Transform(texto7,texto8))
         self.wait(2)
         self.play(Write(subdeg))
         self.wait(6)
+
+
+
 class teoremasimetricos(Scene):
     def construct(self):
-        texto1 = MathTex(r"\textit{Teorema fundamental de los polinomios simétricos}").set_color_by_gradient(Emerald,WHITE)
+        Emerald = "#00A99D"
+        texto1 = MathTex(r"\begin{gathered}\textit{Descomposición de polinomios simétricos} \\ \textit{en simétricos elementales de }R[X]\end{gathered}").set_color_by_gradient(Emerald,WHITE)
+        texto2 = MathTex(r"\begin{gathered}\textit{Todo polinomio simétrico en }R[X] \textit{se puede expresar} \\ \textit{en términos de polinomios simétricos elementales}\end{gathered}").set_color_by_gradient(Emerald,WHITE).move_to(UP*3)
+        self.play(Write(texto1))
+        self.wait(3)
+        self.play(Transform(texto1,texto2))
+        self.wait()
+        texto3 = MathTex(r"\begin{gathered}\textit{Si }p \in R\left[x_{1}, \ldots, x_{n}\right] \textit{ es un polinomio simétrico, } \\ \textit{entonces existe un único polinomio } \varphi \in R\left[x_{1}, \ldots, x_{n}\right] \textit{ tal que } p=\varphi\left(s_{1}, \ldots, s_{n}\right) \end{gathered}").set_color(Emerald)
+        texto4 = MathTex(r"Teorema: \textit{Si }p \in R\left[x_{1}, \ldots, x_{n}\right] \textit{ es un polinomio simétrico, entonces existe un único polinomio } \varphi \in R\left[x_{1}, \ldots, x_{n}\right] \\ \textit{ tal que } p=\varphi\left(s_{1}, \ldots, s_{n}\right) \\ \textit{Demostración:}").set_color(Emerald).move_to(UP *2.5+LEFT*4).scale(0.8)
+        eqn0 = MathTex(r"\begin{gathered} \textit{Existencia: Demostración por inducción en el orden lexicográfico de } p.\\ \textit{Sea }p \textit{un polinomio simétrico con } \operatorname{lexdeg} p=\left(i_{1}, \ldots, i_{n}\right) \\ \textit{, entonces } i_{1} \geq i_{2} \geq \cdots \geq i_{n} \textit{ pues, luego podemos construir el polinomio simétrico: } \\ f=s_{1}^{i_{1}-i_{2}} s_{2}^{i_{2}-i_{3}} \cdots s_{n-1}^{i_{n-1}-i_{n}} s_{n}^{i_{n}}\textit{ con grado lexicográfico: } \\\begin{aligned} \operatorname{lexdeg} f & =\left(i_{1}-i_{2}\right) \operatorname{lexdeg} s_{1}+\left(i_{2}-i_{3}\right) \operatorname{lexdeg} s_{2}+\cdots+i_{n} \operatorname{lexdeg} s_{n} \\ & =\left(i_{1}-i_{2}, 0, \ldots, 0\right)+\left(i_{2}-i_{3}, i_{2}-i_{3}, \ldots, 0\right)+\cdots+\left(i_{n}, i_{n}, \ldots, i_{n}\right) \\ & =\left(i_{1}, i_{2}, \ldots, i_{n}\right)=\operatorname{lexdeg} p \end{aligned}\end{gathered}").move_to(UP*1).scale(0.7)        
+        #acá falta el teorema que referencian.
+        self.play(Write(texto3))
+        self.wait(2)
+        self.play(Transform(texto3,texto4))
+        self.wait()
+        self.play(Write(eqn0))
+        self.wait(6)
+        """
+        texto5 = MathTex(r"\textit{Polinomios simétricos}").set_color(Emerald)
+        texto6 = MathTex(r"\textit{Def: Un polinomio } f \in R[X] \textit{ se llama simétrico si } ").set_color(Emerald).move_to(UP *0.5+LEFT*1.8).scale(0.8)
+        eqn1 = MathTex(r"\begin{gathered} f\left(x_{\sigma(1)}, \ldots, x_{\sigma(n)}\right)=f\left(x_{1}, \ldots, x_{n}\right) \text { para todas las permutaciones } \sigma \in \operatorname{Sym}_{n} \end{gathered}").move_to(DOWN*0.5).scale(0.7)
+        eqn1_b = MathTex(r"\begin{gathered} f\left(x_{\sigma(1)}, \ldots, x_{\sigma(n)}\right)=f\left(x_{1}, \ldots, x_{n}\right) \text { para todas las permutaciones } \sigma \in \operatorname{Sym}_{n} \end{gathered}").move_to(DOWN*0.5).scale(0.7)
+        
+        self.play(Write(texto5))
+        self.wait(2)
+        self.play(Transform(texto5,texto6))
+        self.wait(4)
+        self.play(Write(eqn1))
+        self.wait(6)
+        self.play(Transform(eqn1,eqn1_b))
+        self.wait(6)
+        texto7 = MathTex(r"\begin{gathered} \textit{Def: polinomios elementales } s_{1}, \ldots, s_{n} \textit{ en n variables} \end{gathered}").set_color(Emerald).move_to(DOWN*1.5).scale(0.8)
+        texto8 = MathTex(r"\textit{Def: polinomios elementales } s_{1}, \ldots, s_{n} \textit{ en n variables}  ").set_color(Emerald).move_to(DOWN*1.5).scale(0.8)
+        subdeg = MathTex(r"\begin{gathered} s_{k}\left(x_{1}, \ldots, x_{n}\right)=\sum_{1 \leq i_{1}<\cdots<i_{k} \leq n} x_{i_{1}} \cdots x_{i_{k}} \end{gathered}").move_to(DOWN*2.6).scale(0.7)
+        self.play(Write(texto7))
+        self.wait(2)
+        self.play(Transform(texto7,texto8))
+        self.wait(2)
+        self.play(Write(subdeg))
+        self.wait(6)
+        """
+
+
+
 class ejemplo(Scene):
     def construct(self):
         texto1 = MathTex(r"\textit{Veamos un ejemplo}").set_color_by_gradient(Emerald,WHITE)
@@ -328,8 +374,6 @@ Proof. The effect of applying any permutation
 $\sigma \in \operatorname{Sym}_{n}$ to $D$ 
 is a mere per tation of the factors $\left(x_{i}-x_{j}\right)^{2}$;
  hence $\sigma \star D=D$ for all $\sigma \in \operatorname{Sym}_{n}$."""
-
-
 
 class raizsincalcular(Scene):
     def construct(self):
